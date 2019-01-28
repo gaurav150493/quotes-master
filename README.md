@@ -6,12 +6,12 @@ Install this plugin and start enjoying quotes module on your website. You can ad
 # Usage
 
 ## Get All Quotes by Author
-[getquoteforauthor slug="authorslug" page="pageno" limit="perpagelimit"]
+`[getquoteforauthor slug="authorslug" page="pageno" limit="perpagelimit"]`
 
 Above you can get all the quotes of one author by providing author slug in slug parameter. Also use page and limit parametres to get quotes in pagination.
 
 ## Get All Quotes by Topics
-[getquotefortopic slug="topicslug" page="pageno" limit="perpagelimit"]
+`[getquotefortopic slug="topicslug" page="pageno" limit="perpagelimit"]`
 
 Above you can get all the quotes of one topic by providing topic slug in slug parameter. Also as per author use page and limit parametres to get quotes in pagination.
 
