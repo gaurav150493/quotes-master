@@ -1,6 +1,6 @@
 <?php 
     /*
-    Plugin Name: Custom Quotes
+    Plugin Name: Quotes Master
     Plugin URI: https://github.com/gaurav150493/quotes-master
     Description: Plugin for Quotes with author and topics
     Author: Gaurav Aggarwal
