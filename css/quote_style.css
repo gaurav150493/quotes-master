@@ -1,0 +1,101 @@
+/* stylesheet */
+#quotesListing{
+    margin-top: 10px;
+}
+#quotesListing ul.quote_topics{
+    margin: 0;
+}
+#quotesListing ul.quote_topics li{
+    display: inline-block;
+    margin: 0.1em;
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd;
+    border-radius: 0.2em;
+    font-size: 0.8em;
+}
+#authorsListing{
+    margin-top: 10px;
+}
+
+span.error{
+    display: block;
+    color: #cd0000;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.row-actions span.success a{
+    color: #009406;
+}
+.wp-core-ui .button.button-small.extra{
+    height: 18px;
+    line-height: 16px;
+    padding: 0 4px 1px;
+    font-size: 10px;
+}
+
+.add_new_topic_popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999999;
+    background: rgba(0,0,0,.5);
+}
+.add_new_topic_popup #poststuff{
+    min-width: auto;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+.add_new_topic_popup #poststuff .closeTopicBox{
+    background: 0 0;
+    border: none;
+    box-shadow: none;
+    color: #666;
+    cursor: pointer;
+    display: block;
+    font-size: 24px;
+    line-height: 32px;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+.topic_success{
+    text-align: center;
+}
+.topic_success i{
+    border-radius: 100%;
+    display: block;
+    margin: auto;
+    height: 50px;
+    width: 50px;
+    background: #009406;
+    margin: auto;
+    color: #fff;
+}
+.topic_success i:before{
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+}
+.topic_success p{
+    font-style: normal;
+    margin: 0;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+
