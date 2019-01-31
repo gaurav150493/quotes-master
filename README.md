@@ -21,14 +21,22 @@ Example to fetch all quotes by topics
 
 ```
 $allQuotesByTopics = json_decode(do_shortcode("[getquotefortopic slug="topicslug" page="pageno" limit="perpagelimit"]"));
-$allQuotesByTopics->quotes = json_decode($allQuotesByTopics->quotes);
-$allQuotesByTopics->allTopics = json_decode($allQuotesByTopics->allTopics);
+if($allQuotesByTopics->quotes){
+    $allQuotesByTopics->quotes = json_decode($allQuotesByTopics->quotes);
+};
+if($allQuotesByTopics->allTopics){
+    $allQuotesByTopics->allTopics = json_decode($allQuotesByTopics->allTopics);
+};
 ```
 
 Example to fetch all quotes by author
 
 ```
 $allQuotesByAuthor = json_decode(do_shortcode("[getquoteforauthor slug="authorslug" page="pageno" limit="perpagelimit"]"));
-$allQuotesByAuthor->quotes = json_decode($allQuotesByAuthor->quotes);
-$allQuotesByAuthor->allTopics = json_decode($allQuotesByAuthor->allTopics);
+if($allQuotesByAuthor->quotes){
+    $allQuotesByAuthor->quotes = json_decode($allQuotesByAuthor->quotes);
+};
+if($allQuotesByAuthor->allTopics){
+    $allQuotesByAuthor->allTopics = json_decode($allQuotesByAuthor->allTopics);
+};
 ```
