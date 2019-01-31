@@ -10,6 +10,7 @@
     // insert new topics
     if($newtopic){
         $newtopicslug = strtolower($newtopic);
+        $newtopicslug = trim($newtopicslug);
         $newtopicslug = str_replace(' ', '-', $newtopicslug);
         global $wpdb;
         $wpdb->insert("wp_quotes_topics", array(

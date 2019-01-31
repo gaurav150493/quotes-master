@@ -19,8 +19,7 @@
     require_once( 'inc/shortcode_quotes_by_topic.php' );
 
     // load quotes scripts and styles
-    add_action( 'admin_enqueue_scripts', 'load_quotes_scripts_and_styles' );
-    
+    add_action( 'admin_enqueue_scripts', 'load_quotes_scripts_and_styles' );    
 
     function load_quotes_scripts_and_styles(){
         if($_REQUEST['page']=='quotes' || $_REQUEST['page']=='authors' || $_REQUEST['page']=='bulk-upload'){
@@ -82,7 +81,11 @@
             PRIMARY KEY (`id`)
           ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 
-        $sqlAnonymousAuthor = "INSERT INTO `mylo_website`.`wp_quotes_author` (`name`, `slug`, `status`) VALUES ('Anonymous', 'anonymous', '1');";
+        $isEmptyAuthorTable = $wpdb->get_results("select count(*) as count from wp_quotes_author");
+
+        if($isEmptyAuthorTable[0]->count==0){
+            $sqlAnonymousAuthor = "INSERT INTO `wp_quotes_author` (`name`, `slug`, `status`) VALUES ('Anonymous', 'anonymous', '1');";
+        };
 
         $wpdb->query($sqlQuotes);
         $wpdb->query($sqlQuotesAuthor);

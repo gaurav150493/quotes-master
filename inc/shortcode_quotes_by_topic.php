@@ -9,7 +9,7 @@
 
         $topicResult = $wpdb->get_results("select * from wp_quotes_topics where slug = '$topicSlug'");
         $topicId = $topicResult[0]->id;
-        $alltopicquotes = $wpdb->get_results("select c.* from wp_topics_quotes_map a join wp_quotes_topics b on a.topic_id = b.id join wp_quotes c on a.quote_id = c.id where a.status = '1' and a.topic_id = $topicId limit $page, $limit");
+        $alltopicquotes = $wpdb->get_results("select c.* from wp_topics_quotes_map a join wp_quotes_topics b on a.topic_id = b.id join wp_quotes c on a.quote_id = c.id where a.status = '1' and c.status = '1' and a.topic_id = $topicId limit $page, $limit");
         foreach($alltopicquotes as $quote){
             $quote->topics = $wpdb->get_results( "select b.* from wp_topics_quotes_map a join wp_quotes_topics b on a.topic_id = b.id where a.quote_id = $quote->id and a.status = '1'");
             $quote->authorData = $wpdb->get_results( "select a.* from wp_quotes_author a join wp_quotes b on a.id = b.author where b.id = $quote->id");
@@ -35,7 +35,7 @@
         
         $topicResult = $wpdb->get_results("select * from wp_quotes_topics where slug = '$topicSlug'");
         $topicId = $topicResult[0]->id;
-        $alltopicquotescount = $wpdb->get_results("select count(*) as count from wp_topics_quotes_map a join wp_quotes_topics b on a.topic_id = b.id join wp_quotes c on a.quote_id = c.id where a.status = '1' and a.topic_id = $topicId");
+        $alltopicquotescount = $wpdb->get_results("select count(*) as count from wp_topics_quotes_map a join wp_quotes_topics b on a.topic_id = b.id join wp_quotes c on a.quote_id = c.id where a.status = '1' and c.status = '1' and a.topic_id = $topicId");
         $allquotescount = $alltopicquotescount[0]->count;
         $pages = ceil($allquotescount/$perpage);
         $pagePrevious = $currentPageNo==1 ? 1 : $currentPageNo-1;

@@ -10,12 +10,12 @@
     
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-        $aname = $_POST["aname"];
-        $aimage = $_POST["aimage"];
+        $aname = trim($_POST["aname"]);
+        $aimage = trim($_POST["aimage"]);
         $adob = $_POST["adob"];
         $adod = $_POST["adod"];
-        $aprofession = $_POST["aprofession"];
-        $anationality = $_POST["anationality"];
+        $aprofession = trim($_POST["aprofession"]);
+        $anationality = trim($_POST["anationality"]);
 
         if(empty($_POST["aname"])){
             $anameErr = 'Author name is required';
@@ -174,8 +174,7 @@
                             <?php echo $x->date_of_birth;?>
                             <div class="row-actions">
                                 <span class="edit"><a href="<?php echo $editauthor.''.$x->id;?>">Edit</a></span>
-                                | 
-                                <span class="delete"><a href="javascript:void(0)" onclick="deleteAuthor(<?php echo $x->id; ?>)">Delete</a></span>
+                                <!-- <span class="delete"><a href="javascript:void(0)" onclick="deleteAuthor(<?php echo $x->id; ?>)">Delete</a></span> -->
                             </div>
                         </td>
                         <td><?php echo $x->date_of_death;?></td>

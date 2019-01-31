@@ -10,7 +10,7 @@
 
         $authorResult = $wpdb->get_results("select * from wp_quotes_author where slug = '$authorSlug'");
         $authorId = $authorResult[0]->id;
-        $allauthorquotes = $wpdb->get_results("select * from wp_quotes where author = $authorId limit $page, $limit");
+        $allauthorquotes = $wpdb->get_results("select * from wp_quotes where author = $authorId and status = '1' limit $page, $limit");
         foreach($allauthorquotes as $quote){
             $quote->topics = $wpdb->get_results( "select b.* from wp_topics_quotes_map a join wp_quotes_topics b on a.topic_id = b.id where a.quote_id = $quote->id and a.status = '1'");
         }
@@ -33,7 +33,7 @@
 
         $authorResult = $wpdb->get_results("select * from wp_quotes_author where slug = '$authorSlug'");
         $authorId = $authorResult[0]->id;
-        $allquotescount = $wpdb->get_results("select count(*) as count from wp_quotes where author = $authorId");
+        $allquotescount = $wpdb->get_results("select count(*) as count from wp_quotes where author = $authorId and status = '1'");
         $allquotescount = $allquotescount[0]->count;
         $pages = ceil($allquotescount/$perpage);
         $pagePrevious = $currentPageNo==1 ? 1 : $currentPageNo-1;
