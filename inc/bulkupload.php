@@ -15,12 +15,9 @@
                 for ($i = 0; $row = fgetcsv($file); ++$i) {
                     $currRow = '';
                     for($x = 0; $x < count($row); $x++){
-                        if(empty($currRow)){
-                            $currRow = $row[$x];
-                        } else {
-                            $currRow = $currRow.'---'.$row[$x];
-                        };
+                        $currRow = $currRow.'---'.$row[$x];
                     }
+                    $currRow = substr($currRow, 3);
                     array_push($fileContent, $currRow);
                 }
                 fclose($file);
@@ -76,7 +73,7 @@
                 <div id="add_quote_bulk" class="postbox">
                     <h3 class="hndle"><span>Bulk Upload Quotes</span></h3>
                     <div class="inside">
-                        <p>Browse and choose a CSV file to upload (Format should be like <a target="_blank" href="http://gauravaggarwal.me/wordpress/sample.csv">sample CSV</a> format), Then Click Upload</p>
+                        <p>Browse and choose a CSV file to upload (Format should be like <a target="_blank" href="http://mylofamily.com/wp-content/uploads/2019/01/sample.csv">sample CSV</a> format), Then Click Upload</p>
                         <div class="form-wrap">
                             <form method="post" enctype="multipart/form-data" name="bulkuploadForm" action="<?php echo $_SERVER['REQUEST_URI'];?>">
                                 <div class="form-field">
