@@ -91,7 +91,9 @@
         $wpdb->query($sqlQuotesAuthor);
         $wpdb->query($sqlQuotesTopics);
         $wpdb->query($sqlQuotesTopicsMap);
-        $wpdb->query($sqlAnonymousAuthor);
+        if($sqlAnonymousAuthor){
+            $wpdb->query($sqlAnonymousAuthor);
+        };
     };
 
     // define menu options
